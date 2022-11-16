@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>BLog Website</h1>
+
+ {% extends "blog/main.html" %}
+ {% block content %}
+
+
+    <div class="border"><a href="{% url 'user-posts' object.user.username %}" class="a"><h1>{{object.user}}</h1></a>
+    <h3>{{object.title}}</h3>
+    {{object.content}}
+        <div><span class="bold">Date Posted: </span>{{object.date_posted}}<div>
+    </div>
+     <a href="{% url 'view-comment' object.title %} "class="border" style="margin-bottom:5px">Comments</a>
+    {% if object.user == user %}
+        <a href="{% url 'post-update' object.id%}" class="border">Update Post</a>
+        <a href="{% url 'post-delete' object.id%}" class="border">Delete Post</a>
+    {% endif %}
+ {% endblock content %}
+</body>
+</html>

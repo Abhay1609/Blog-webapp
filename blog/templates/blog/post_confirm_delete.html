@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+     {% extends "blog/main.html" %}
+<div>
+    {% block content %}
+    <form method="POST">
+        {% csrf_token %}
+        <fieldset >
+            <legend>Delete Post</legend>
+            <h2>Are you sure want to delete the post "{{object.title}}"</h2>
+        </fieldset>
+        <button type="submit">Yes, Delete</button>
+      <a type="submit" href="{% url 'post-detail' object.id%}">Cancel</a>
+
+    </form>
+{% endblock content %}
+</div>
+
+</body>
+</html>

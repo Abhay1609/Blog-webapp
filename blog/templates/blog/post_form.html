@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+     {% extends "blog/main.html" %}
+<div>
+      {% load crispy_forms_tags %}
+
+ {% block content %}
+    <form method="POST">
+        {% csrf_token %}
+        <fieldset >
+            <legend>Blog Post</legend>
+            {{form|crispy}}
+        </fieldset>
+        <button type="submit">Post</button>
+
+
+    </form>
+
+{% endblock content %}
+
+</div>
+
+</body>
+</html>

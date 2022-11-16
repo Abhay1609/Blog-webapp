@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>comment</title>
+</head>
+<body>
+     {% extends "blog/main.html" %}
+     {% block content %}
+     <h2 style="text-align:center">No comment yet!!</h2>
+     <h3 style="text-align:center">Add new comment</h3>
+
+    {% for i in posts %}
+    <div style="text-align:right;" ><a href="{% url 'comment-create' i.title  %} " style="text-align:right;" ><p class="add" style="font-size:70px">&#10009;</p></a></div>
+
+    {% endfor%}
+{% endblock content %}
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>logout</title>
+</head>
+<body>
+     {% extends "blog/main.html" %}
+
+ {% block content %}
+<div>
+        <div class="border" >
+            <div style=" text-align: center; color: green; font-size:50px">&#10004;</div>
+        <h2 style=" text-align: center;">You have been Logout!!</h2>
+            <div></div>
+            </div>
+
+
+    <div style="color:blue" class="bold">Log in again? <a href="{% url 'login'%}">Log In</a></div>
+</div>
+{% endblock content %}
+</body>
+</html>

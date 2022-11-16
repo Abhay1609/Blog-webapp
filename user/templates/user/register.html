@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+           {% extends "blog/main.html" %}
+    {% load crispy_forms_tags %}
+ {% block content %}
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <fieldset >
+            <legend>Join Today</legend>
+            {{form|crispy}}
+
+        </fieldset>
+        <button type="submit">Sign up</button>
+
+    </form>
+    <div style="color:blue">Already Have An Account? <a href="{% url 'login' %}" class="bold">Sign In</a></div>
+    {% endblock content %}
+</div>
+
+
+</body>
+</html>
