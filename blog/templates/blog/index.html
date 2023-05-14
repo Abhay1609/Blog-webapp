@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Blog webapp</title>
 </head>
 <body>
-    <h1 style="text-align:center">Blog Website</h1>
+<!--    <h1 style="text-align:center">Blog Website</h1>-->
 
  {% extends "blog/main.html" %}
  {% block content %}
@@ -31,26 +31,36 @@
          </div>
     {% endfor %}
     </fielset>
+    <div style='margin-left:40%'>
     {% if is_paginated %}
         {% if page_obj.has_previous%}
-            <a href="?page=1"  class="border">&#10112;First</a>
-            <a href="?page={{page_obj.previous_page_number}}"  class="border">&#10096; Previous</a>
+            <ul class="pagination">
+            <li class="page-item"><a class="page-link" href="?page=1"  class="border">First</a></li>
+                <li class="page-item"><a class="page-link" href="?page={{page_obj.previous_page_number}}"  class="border">&#10096; Previous</a></li>
+
         {%endif%}
         {% for num in page_obj.paginator.page_range %}
             {%if page_obj.number == num%}
-                <a href="?page={{num}}" class="border" style="color:white; background-color:black">{{num}}</a>
+    <ul class="pagination">
+
+                <li class="page-item"><a class="page-link"  href="?page={{num}}"  >{{num}}</a></li>
             {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'-3' %}
-                <a href="?page={{num}}" class="border">{{num}}</a>
+
+                <li class="page-item"><a class="page-link"  href="?page={{num}}" >{{num}}</a></li></ul>
             {%endif%}
         {%endfor%}
         {% if page_obj.has_next %}
-            <a href="?page={{ page_obj.next_page_number}}"  class="border">Next &#10097;</a>
-            <a href="?page={{page_obj.paginator.num_pages}}"  class="border">Last&#9735;</a>
+    <ul class="pagination">
+
+    <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number}}"  class="border">Next &#10097;</a></li>
+        <li class="page-item"><a class="page-link" href="?page={{page_obj.paginator.num_pages}}"  class="border">Last</a></li></ul>
         {%endif%}
 
 
     {% endif %}
 
  {% endblock content %}
+                </div>
+
 </body>
 </html>

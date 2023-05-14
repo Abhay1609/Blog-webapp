@@ -3,6 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>logout</title>
+    <style>
+        .mid{
+        margin-left:40%;
+
+        }
+    </style>
 </head>
 <body>
      {% extends "blog/main.html" %}
@@ -11,12 +17,13 @@
 <div>
         <div class="border" >
             <div style=" text-align: center; color: green; font-size:50px">&#10004;</div>
-        <h2 style=" text-align: center;">You have been Logout!!</h2>
+        <h2 style=" text-align: center;" >You have been Logout!!</h2>
             <div></div>
             </div>
+<!--    <button type="button" class="btn btn-primary">Primary</button>-->
 
 
-    <div style="color:blue" class="bold">Log in again? <a href="{% url 'login'%}">Log In</a></div>
+    <div  class="bold" style="margin-top:2%;margin-left:40%;font-size:1.5rem;"  class="mid">Log in again? <a href="{% url 'login'%}" class="btn btn-primary">Log In</a></div>
 </div>
 {% endblock content %}
 </body>

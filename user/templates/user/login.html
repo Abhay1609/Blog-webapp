@@ -6,10 +6,11 @@
     <title>Login</title>
 </head>
 <body>
-<div>
+<div >
          {% extends "blog/main.html" %}
     {% load crispy_forms_tags %}
  {% block content %}
+    <div class="card" style="width: 60%;margin-left:20%;">
     {% if messages %}
         {% for message in messages %}
             {{message}}
@@ -17,14 +18,17 @@
     {% endif %}
     <form method="POST">
         {% csrf_token %}
-        <fieldset >
-            <legend>Login</legend>
+        <fieldset  style="width: 50%;margin-top:3%;margin-left:25%;" >
+            <legend></legend>
             {{form|crispy}}
         </fieldset>
-        <button type="submit">Login</button>
+        <button type="submit" class="btn btn-primary" style="margin-top:0.5%;margin-left:45%;">Log In</button>
+<!--        <button type="submit" class="btn btn-primary" style="margin-top:0.5%;margin-left:45%;">Login</button>-->
 
     </form>
-    <div style="color:blue">Need an account? <a href="{% url 'register' %}" class="border" class="bold">Sign Up </a></div>
+
+    <div style="margin-top:2%;margin-left:35%;font-size:2rem;" >Need an account? <a href="{% url 'register' %}" class="btn btn-outline-primary">Sign Up </a></div>
+    </div>
     {% endblock content %}
 </div>
 </body>

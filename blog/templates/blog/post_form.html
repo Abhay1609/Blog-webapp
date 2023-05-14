@@ -10,16 +10,18 @@
       {% load crispy_forms_tags %}
 
  {% block content %}
+    <div class="card" style="width: 60%;margin-left:20%;margin-top:1%;">
     <form method="POST">
         {% csrf_token %}
         <fieldset >
             <legend>Blog Post</legend>
             {{form|crispy}}
         </fieldset>
-        <button type="submit">Post</button>
+        <button type="submit" class="btn btn-primary" style="margin-top:0.5%;margin-left:45%;">Post</button>
 
 
     </form>
+    </div>
 
 {% endblock content %}
 
